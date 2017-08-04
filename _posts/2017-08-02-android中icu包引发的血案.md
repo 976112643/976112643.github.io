@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      android.icu.包引发的血案
+title:      android中icu包引发的血案
 subtitle:   android.icu.包引发的血案
 date:       2017-08-02
 author:     WQ
@@ -10,7 +10,7 @@ tags:
     - Android
     - 自定义控件
     - 版本兼容
-	- android.icu
+    - icu
 ---
 
 最近同事遇到一个自定义控件,在低版本下导致闪退的问题,
