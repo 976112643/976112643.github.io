@@ -3,6 +3,7 @@ title: 淡定的程序猿的博客
 SEOTitle: 淡定的程序猿的博客 | BY Blog
 header-img: img/post-bg-debug.png
 email: weiquan@163.com
+author-name: 淡定的程序猿
 description: "Every failure is leading towards success."
 keyword: "BY, BY Blog, 淡定的程序猿的博客, 程序猿, wq, Android, Google,Android Studio"
 url: "http://976112643.github.io"          # your host, for absolute URL
@@ -69,11 +70,11 @@ disqus_username: 淡定的程序猿
 
 # Analytics settings
 # Baidu Analytics
-ba_track_id: b50bf2b12b5338a1845e33832976fd68
+ba_track_id: 401abaf8c55fef6fc2160e9354999677
 
 # Google Analytics
-ga_track_id: 'UA-90855596-1'            # Format: UA-xxxxxx-xx
-ga_domain: auto
+#ga_track_id: 'UA-90855596-1'            # Format: UA-xxxxxx-xx
+#ga_domain: auto
 
 
 
@@ -90,6 +91,8 @@ chrome-tab-theme-color: "#000000"
 service-worker: true
 
 
+#github Site
+github-site: "http://976112643.github.io"
 
 # Friends
 friends: [
