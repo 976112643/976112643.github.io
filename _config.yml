@@ -56,14 +56,8 @@ kramdown:
 
 
 # 评论系统
-# Disqus settings（https://disqus.com/）
-disqus_username: 淡定的程序猿
-
-# 多说 将于2017年6月1日正式关停服务，建议使用 Disqus（http://dev.duoshuo.com/threads/58d1169ae293b89a20c57241）
-# Duoshuo settings
-# duoshuo_username: qiubaiying
-# Share component is depend on Comment so we can NOT use share only.
-# duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+changyan_appid: cyt9gJlza
+changyan_conf: prod_cc504e5238050fe81cf511d3da9b5d0f
 
 
 
