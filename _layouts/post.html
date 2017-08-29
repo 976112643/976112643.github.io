@@ -91,6 +91,19 @@ layout: default
   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js">
 </script> 
   <script>
+  const myTheme = {
+  render(state, instance) {
+    const container = document.createElement('div')
+    container.lang = "en-US"
+    container.className = 'gitment-container gitment-root-container'
+    container.appendChild(instance.renderHeader(state, instance))
+    container.appendChild(instance.renderEditor(state, instance))
+    container.appendChild(instance.renderComments(state, instance))
+    container.appendChild(instance.renderFooter(state, instance))
+    return container
+  },
+}
+
 	var gitment = new Gitment({
     owner: '976112643',
     repo: '976112643.github.io',
@@ -98,6 +111,7 @@ layout: default
         client_id: '15a22e6ea7d5381aa336',
         client_secret: '5f3caf5c69718be31a46b729d5d21754df1ba8e0',
     },
+	theme: myTheme,
 });
 gitment.render('gitmentContainer'); 
 </script> 
