@@ -84,7 +84,24 @@ layout: default
 
 
              
- 
+ 			<!-- gitment评论框 -->
+			 <div id="gitmentContainer"> 
+  </div> 
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css" /> 
+  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js">
+</script> 
+  <script>
+	var gitment = new Gitment({
+    owner: '976112643',
+    repo: '976112643.github.io',
+    oauth: {
+        client_id: '15a22e6ea7d5381aa336',
+        client_secret: '5f3caf5c69718be31a46b729d5d21754df1ba8e0',
+    },
+});
+gitment.render('gitmentContainer'); 
+</script> 
+			<!-- gitment评论框END -->
 
             </div>  
 
@@ -142,24 +159,7 @@ layout: default
                 {% endif %}
             </div>
 			
-			<!-- gitment评论框 -->
-			 <div id="gitmentContainer"> 
-  </div> 
-  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css" /> 
-  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js">
-</script> 
-  <script>
-	var gitment = new Gitment({
-    owner: '976112643',
-    repo: '976112643.github.io',
-    oauth: {
-        client_id: '15a22e6ea7d5381aa336',
-        client_secret: '5f3caf5c69718be31a46b729d5d21754df1ba8e0',
-    },
-});
-gitment.render('gitmentContainer'); 
-</script> 
-			<!-- gitment评论框END -->
+
         </div>
     </div>
 </article>
