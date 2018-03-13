@@ -517,18 +517,9 @@ pre code {
 .intro-header .page-heading {
   padding: 85px 0 55px; 
   color: white;
+  
 }
-.intro-header .page-heading:before{  
-    width: 500px;  
-    height: 300px;  
-    content: "";  
-    position: absolute;  
-    top: 0;  
-    left: 0;  
-    z-index: -1;/*-1 可以当背景*/  
-    -webkit-filter: blur(3px);  
-    filter: blur(3px);  
-}  
+ 
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading,
   .intro-header .post-heading,
