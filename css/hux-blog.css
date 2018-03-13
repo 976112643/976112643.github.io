@@ -516,6 +516,8 @@ pre code {
 .intro-header .post-heading,
 .intro-header .page-heading {
   padding: 85px 0 55px;
+  -webkit-filter: blur(3px);  
+  filter: blur(3px);  
   color: white;
 }
 @media only screen and (min-width: 768px) {
