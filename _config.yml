@@ -1,7 +1,7 @@
 # Site settings
 title: 淡定的程序猿的博客
 SEOTitle: 淡定的程序猿的博客 | BY Blog
-header-img: img/post-bg-debug.png
+header-img: img/acg/67650124.jpg
 email: weiquan@163.com
 author-name: 淡定的程序猿
 description: "Every failure is leading towards success."
@@ -58,8 +58,6 @@ kramdown:
 
 
 # 评论系统
-changyan_appid: cyt9gJlza
-changyan_conf: prod_cc504e5238050fe81cf511d3da9b5d0f
 
 
 
