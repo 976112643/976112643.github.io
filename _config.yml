@@ -1,11 +1,11 @@
 # Site settings
 title: 淡定的程序猿的博客
-SEOTitle: 淡定的程序猿的博客 | BY Blog
+SEOTitle: 淡定的程序猿的博客 | BY Quanwe
 header-img: img/acg/67650124.webp
 email: weiquan@163.com
 author-name: 淡定的程序猿
 description: "Every failure is leading towards success."
-keyword: "BY, BY Blog, 淡定的程序猿的博客, 程序猿, wq, Android, Google,Android Studio"
+keyword: "BY, BY Quanwe, 淡定的程序猿的博客, 程序猿,Quanwe, wq, Android, Google,Android Studio"
 url: "http://976112643.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/976112643/976112643.github.io.git" # you code repository
@@ -22,9 +22,9 @@ RSS: false
 weibo_username:     2909669001
 zhihu_username:     yuan-dong-5-26
 github_username:    976112643
-#facebook_username:  baiying.qiu.7
+#facebook_username:  
 jianshu_username:   b0d50c26181c
-#twitter_username:   qiubaiying
+#twitter_username:   
 
 
 
@@ -87,6 +87,15 @@ service-worker: false
 
 #github Site
 github-site: "http://976112643.github.io"
+
+# 默认的头部图片,页面不设置头部图片时,自动再该数组里边选取
+header-imgs: [
+	"img/acg/67650124.webp",
+	"img/post-bg-hacker.jpg",
+	"img/post-bg-iWatch.jpg",
+	"img/post-bg-debug.png",
+	"img/post-bg-github-cup.jpg"
+]
 
 # Friends
 friends: [

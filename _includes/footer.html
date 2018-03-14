@@ -7,7 +7,7 @@
                     {% if site.RSS %}
                     <li>
                         <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
-                            <span class="fa-stack fa-lg">
+                        <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
                             </span>
@@ -16,14 +16,15 @@
                     {% endif %}
                     <!-- add jianshu add target = "_blank" to <a> by BY -->
                     {% if site.jianshu_username %}
-                            <li>
-                                <a target="_blank" href="https://www.jianshu.com/u/{{ site.jianshu_username }}">
+                    <li>
+                        <a target="_blank"
+                           href="https://www.jianshu.com/u/{{ site.jianshu_username }}">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa  fa-stack-1x fa-inverse">简</i>
                                     </span>
-                                </a>
-                            </li>
+                        </a>
+                    </li>
                     {% endif %}
                     {% if site.twitter_username %}
                     <li>
@@ -39,7 +40,8 @@
                     <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
                     {% if site.zhihu_username %}
                     <li>
-                        <a target="_blank" href="https://www.zhihu.com/people/{{ site.zhihu_username }}">
+                        <a target="_blank"
+                           href="https://www.zhihu.com/people/{{ site.zhihu_username }}">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa  fa-stack-1x fa-inverse">知</i>
@@ -61,7 +63,8 @@
 
                     {% if site.facebook_username %}
                     <li>
-                        <a target="_blank" href="https://www.facebook.com/{{ site.facebook_username }}">
+                        <a target="_blank"
+                           href="https://www.facebook.com/{{ site.facebook_username }}">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -81,7 +84,8 @@
                     {% endif %}
                     {% if site.linkedin_username %}
                     <li>
-                        <a target="_blank" href="https://www.linkedin.com/in/{{ site.linkedin_username }}">
+                        <a target="_blank"
+                           href="https://www.linkedin.com/in/{{ site.linkedin_username }}">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
@@ -95,9 +99,9 @@
                     <br>
                     Theme on <a href="{{ site.github_repo }}">GitHub</a> |
                     <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="100px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user={{ site.github_username }}&repo={{ site.github_username }}.github.io&type=star&count=true" >
+                            style="margin-left: 2px; margin-bottom:-5px;"
+                            frameborder="0" scrolling="0" width="100px" height="20px"
+                            src="https://ghbtns.com/github-btn.html?user={{ site.github_username }}&repo={{ site.github_username }}.github.io&type=star&count=true">
                     </iframe>
                 </p>
             </div>
@@ -122,8 +126,28 @@
 $(document).bind('DOMNodeInserted', function(event) {
   addBlankTargetForLinks();
 });
-	</script>
-
+</script>
+<!-- 自动给无头部图片的添加一个图片 -->
+{% if page.header-img == null %}
+<script type="text/javascript">
+$(document).ready(function(){
+var hashCode = function(str){
+    var hash = 0;
+    if (str.length == 0) return hash;
+    for (i = 0; i < str.length; i++) {
+        char = str.charCodeAt(i);
+        hash = ((hash<<5)-hash)+char;
+        hash = hash & hash; // Convert to 32bit integer
+    }
+    return hash;
+}
+  var url_index=hashCode(window.location.href);
+  var urls={{ site.header-imgs | jsonify }};
+  intro_header=$(".intro-header");
+  intro_header.css('background-image','url({{ site.baseurl }}/'+urls[url_index%urls.length]+')')
+});
+</script>
+{% endif %}
 <!-- Service Worker -->
 {% if site.service-worker %}
 <script type="text/javascript">
@@ -134,6 +158,7 @@ $(document).bind('DOMNodeInserted', function(event) {
             .then((registration) => {console.log('Service Worker Registered. ', registration)})
             .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
     }
+
 </script>
 {% endif %}
 
@@ -148,6 +173,7 @@ $(document).bind('DOMNodeInserted', function(event) {
       if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
       s.parentNode.insertBefore(o, s);
     }
+
 </script>
 
 <!-- 
@@ -182,6 +208,7 @@ $(document).bind('DOMNodeInserted', function(event) {
             $('#tag_cloud a').tagcloud();
         })
     }
+
 </script>
 
 <!--fastClick.js -->
@@ -190,6 +217,7 @@ $(document).bind('DOMNodeInserted', function(event) {
         var $nav = document.querySelector("nav");
         if($nav) FastClick.attach($nav);
     })
+
 </script>
 
 
@@ -208,6 +236,7 @@ $(document).bind('DOMNodeInserted', function(event) {
 
     ga('create', _gaId, _gaDomain);
     ga('send', 'pageview');
+
 </script>
 {% endif %}
 
@@ -227,9 +256,9 @@ $(document).bind('DOMNodeInserted', function(event) {
       s.parentNode.insertBefore(hm, s);
     })();
 	
+
 </script>
 {% endif %}
-
 
 
 <!-- Side Catalog -->
@@ -276,6 +305,7 @@ $(document).bind('DOMNodeInserted', function(event) {
             padding: 80
         });
     });
+
 </script>
 {% endif %}
 

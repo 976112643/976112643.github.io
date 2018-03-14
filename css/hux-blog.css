@@ -1091,3 +1091,8 @@ img::-moz-selection {
 .page-fullscreen footer .copyright a:hover {
   color: #ddd;
 }
+
+body{
+	background-image: url(/img/theme_def_bg.png);
+    background-repeat: repeat;
+}

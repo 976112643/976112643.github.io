@@ -49,4 +49,10 @@
     <script type="text/javascript">
 	</script>
 
+    <script type="text/javascript">
+        function getHeadBackground(){
+            return "background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}');opacity:0.8;"
+        }
+    </script>
+
 </head>
