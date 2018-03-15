@@ -148,8 +148,12 @@ var hashCode = function(str){
   intro_header=$(".intro-header");
   intro_header.css('background-image','url({{ site.baseurl }}/'+urls[url_index%urls.length]+')')
 });
+
 </script>
 {% endif %}
+
+
+
 <!-- Service Worker -->
 {% if site.service-worker %}
 <script type="text/javascript">
@@ -160,6 +164,7 @@ var hashCode = function(str){
             .then((registration) => {console.log('Service Worker Registered. ', registration)})
             .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
     }
+
 
 </script>
 {% endif %}
@@ -175,6 +180,7 @@ var hashCode = function(str){
       if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
       s.parentNode.insertBefore(o, s);
     }
+
 
 </script>
 
@@ -211,6 +217,7 @@ var hashCode = function(str){
         })
     }
 
+
 </script>
 
 <!--fastClick.js -->
@@ -219,6 +226,7 @@ var hashCode = function(str){
         var $nav = document.querySelector("nav");
         if($nav) FastClick.attach($nav);
     })
+
 
 </script>
 
@@ -238,6 +246,7 @@ var hashCode = function(str){
       s.parentNode.insertBefore(hm, s);
     })();
 	
+
 
 </script>
 {% endif %}
@@ -287,6 +296,7 @@ var hashCode = function(str){
             padding: 80
         });
     });
+
 
 </script>
 {% endif %}
