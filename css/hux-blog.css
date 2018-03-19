@@ -158,6 +158,10 @@ h6 {
   line-height: 1.1;
   font-weight: bold;
 }
+.shadow-txt{
+    line-height: 35px;
+    text-shadow: 0 0 20px #336e71, 0 0 20px #00ada0, 0 0 20px #00ad81, 0 0 20px #336e71;
+}
 h4 {
   font-size: 21px;
 }
