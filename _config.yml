@@ -97,6 +97,12 @@ header-imgs: [
 	"img/post-bg-github-cup.jpg"
 ]
 
+# 首页默认图片
+index-header-img: "img/acg/67650124.webp"
+
+# 是否显示春菜
+weichuncai-show: true     
+
 # Friends
 friends: [
     {

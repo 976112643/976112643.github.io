@@ -1,8 +1,10 @@
 ---
 layout: page
-header-img: img/acg/67650124.webp
 description: "Thinking will not overcome fear but action will."
 ---
+
+<!-- 如果在配置文件中单独指定了首页头部图片,则给赋值给page.header-img -->
+{% if site.index-header-img %}{% assign page.header-img = site.index-header-img %} {% endif %}
 
 {% for post in paginator.posts %}
 <div class="post-preview">
