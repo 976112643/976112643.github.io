@@ -90,7 +90,7 @@ github-site: "http://976112643.github.io"
 
 # 默认的头部图片,页面不设置头部图片时,自动再该数组里边选取
 header-imgs: [
-	"img/acg/67650124.webp",
+#	"img/acg/67650124.webp",
 	"img/post-bg-hacker.jpg",
 	"img/post-bg-iWatch.jpg",
 	"img/post-bg-debug.png",
@@ -98,10 +98,10 @@ header-imgs: [
 ]
 
 # 首页默认图片
-index-header-img: "img/acg/67650124.webp"
+index-header-img: "img/post-bg-github-cup.jpg"
 
 # 是否显示春菜
-weichuncai-show: true     
+weichuncai-show: false     
 
 # Friends
 friends: [
