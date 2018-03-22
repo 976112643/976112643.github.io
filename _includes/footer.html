@@ -108,7 +108,7 @@
         </div>
     </div>
 </footer>
-
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light "><span class="icon icon-lg icon-chevron-up"></span></a>
 <!-- jQuery -->
 <script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>
 
@@ -117,7 +117,29 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="{{ "/js/hux-blog.min.js " | prepend: site.baseurl }}"></script>
-
+<script type="text/javascript">
+/**  
+*锚点控制  
+*/  
+$(document).ready(function () {  
+$("body").attr("id", "top");  
+$(window).scroll(function () {  
+  
+    if ($(window).scrollTop() > 400) {  
+        $("#gotop").addClass("in");//fadeIn(1250);  
+    }  
+    else if ($(window).scrollTop() == 0) {  
+        $("#gotop").removeClass("in");///fadeOut(1250);  
+    }  
+});  
+$("#gotop").click(function () {  
+	 $("#gotop").removeClass("in");
+	$("html,body").animate({
+				scrollTop: 0
+			}, 500)
+});
+});  
+</script>
 <!-- 给页面内部链接加上 _blank标记,强制在新标签打开页面 -->
 <script type="text/javascript">
  function addBlankTargetForLinks () {
