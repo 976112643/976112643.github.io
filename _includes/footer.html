@@ -117,19 +117,17 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="{{ "/js/hux-blog.min.js " | prepend: site.baseurl }}"></script>
+
+<!-- 快速反回顶部 -->
 <script type="text/javascript">
-/**  
-*锚点控制  
-*/  
 $(document).ready(function () {  
 $("body").attr("id", "top");  
 $(window).scroll(function () {  
-  
     if ($(window).scrollTop() > 400) {  
-        $("#gotop").addClass("in");//fadeIn(1250);  
+        $("#gotop").addClass("in");
     }  
     else if ($(window).scrollTop() == 0) {  
-        $("#gotop").removeClass("in");///fadeOut(1250);  
+        $("#gotop").removeClass("in");
     }  
 });  
 $("#gotop").click(function () {  
