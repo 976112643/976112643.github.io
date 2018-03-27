@@ -1289,7 +1289,6 @@ body {
   line-height: 0.75em;
   vertical-align: -15%;
 }
-<<<<<<< Updated upstream
 
 .table tr th {
     font-weight: 700;
@@ -1306,12 +1305,12 @@ body {
     background-color: #F7F7F7;
 }
    
-=======
->>>>>>> Stashed changes
+
 .post-title-link {
-  color: #3f51b5;
+  color: #404040;
   position: relative;
   display: inline-block;
+  line-height: 32px;
 }
 .post-title-link::after {
   content: "";
@@ -1320,7 +1319,8 @@ body {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #3f51b5;
+  color: #404040;
+  background-color: #404040;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -1329,10 +1329,12 @@ body {
 }
 .post-title-link:hover {
   text-decoration: none;
+  color: #404040;
 }
 .post-title-link:hover::after,
 .post-title-link:active::after {
   visibility: visible;
   -webkit-transform: scaleX(1);
+   color: #404040;
   transform: scaleX(1);
 }
