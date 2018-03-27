@@ -1289,4 +1289,19 @@ body {
   line-height: 0.75em;
   vertical-align: -15%;
 }
+
+.table tr th {
+    font-weight: 700;
+    background-color: #eff3f5;
+	border: 1px solid #DDD;
+	line-height: 22px;
+}
+.table tr {
+    border: 0;
+    border-top: 1px solid #DDD;
+    background-color: #fff;
+}
+.table tr:nth-child(2n) {
+    background-color: #F7F7F7;
+}
    
