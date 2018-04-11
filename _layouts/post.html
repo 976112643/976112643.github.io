@@ -43,7 +43,7 @@ layout: default
                     {% comment %} if page.subtitle {% endcomment %}
                     <h2 class="subheading">{{ page.subtitle }}</h2>
                     {% comment %} endif {% endcomment %}
-                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+                    <span class="meta">By {% if page.author %}{{ page.author }}{% else %}{{ site.author-name }}{% endif %} on {{ page.date | date: "%Y-%m-%d" }}&nbsp;·&nbsp;<i class="icon fa-eye icon-pr"></i>&nbsp;<span class="views"> 0 </span></span>
                 </div>
             </div>
         </div>
@@ -87,6 +87,7 @@ layout: default
 
 
              
+
 <!-- gitment评论框 -->
 <div id="gitmentContainer"> 
 </div> 
@@ -205,6 +206,18 @@ gitment.render('gitmentContainer');
         anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
     })
 </script>
+
+<script>		 
+//$(document).ready(function() {
+			//alert($("body").width());
+$.get("https://manager.quanwe.top/Api/Analysis/Index/accum_analysis?hash_info={{ page.id }}",function(data,status){
+    //alert("数据: " + data['info'] + "\n状态: " + status+"  "+$('span.views'));
+	$('span.views').text(data['info']);
+  });
+//		});
+
+
+</script> 
 <style>
     /* place left on bigger screen */
     @media all and (min-width: 800px) {
