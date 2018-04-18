@@ -1338,3 +1338,78 @@ body {
    color: #404040;
   transform: scaleX(1);
 }
+
+.article-card .post-footer {
+    margin: 0 -20px;
+    padding: 12px 20px 8px;
+}
+
+.post-footer {
+    position: relative;
+    margin: 0 -35px;
+    padding: 20px 35px 0;
+    border-top: 1px solid #ddd;
+}
+.article-tag-list {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+}
+.article-tag-list-link {
+    display: block;
+    padding: 0 16px;
+    line-height: 28px;
+    color: rgba(255, 255, 255, 0.8);
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+}
+.article-tag-list-item:nth-child(n+1) {
+    background: #8bc34a;
+}
+.article-tag-list-item:nth-child(n+2) {
+    background: #673ab7;
+}
+.article-tag-list-item:nth-child(n+3) {
+    background: #ff9800;
+}
+
+.article-tag-list-item {
+    display: inline-block;
+    margin: 0 8px 8px 0;
+    border-radius: 2px;
+}
+
+.waves-button {
+    padding: 0.0em 1.1em;
+    border-radius: 0.2em;
+	background-color: transparent;
+    background-image: none;
+    color: #ffffff;
+    text-decoration: none;
+    outline: 0;
+	text-align: center;
+}
+.waves-button:hover {
+	background-color: rgba(0, 0, 0, 0);
+    font-size: 1em;
+    text-align: center;
+    z-index: 1;
+	color: #ffffff;
+    text-decoration: none;
+}
+
+.waves-button, .waves-circle {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+.waves-effect {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}

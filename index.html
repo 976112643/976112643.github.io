@@ -21,8 +21,13 @@ description: "Thinking will not overcome fear but action will."
         </div>
     </a>
     <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+        By {% if page.author %}{{ page.author }}{% else %}{{ site.author-name }}{% endif %} on {{ post.date | date: "%Y-%m-%d" }}
     </p>
+	<div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link waves-effect waves-button" href="/tags/Weibview/">test1</a></li><li class="article-tag-list-item"><a class="article-tag-list-link waves-effect waves-button" href="/tags/h5/">test2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link waves-effect waves-button" href="/tags/js交互/">test3</a></li></ul>
+
+    </div>
 </div>
 <!--<hr>-->
 {% endfor %}
