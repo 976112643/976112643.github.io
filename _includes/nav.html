@@ -19,13 +19,15 @@
                     <li>
                         <a href="{{ site.baseurl }}/">Home</a>
                     </li>
-                    {% for page in site.pages %}{% if page.title %}
+					<!-- 使用index对静态页面进行排序 -->
+					{% assign projects = site.pages  | sort: "index" %}
+                    {% for page in projects %}{% if page.title %}
                     <li>
                         <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
                     </li>
                     {% endif %}{% endfor %}
-					 <li style="padding-top:14px;padding-bottom:15px;padding-right:15px">
-						<img src="/search/img/cb-search.png" width="20px" height="20px"  id="cb-search-btn" title="双击ctrl试一下">
+					 <li  >
+					 <a id="cb-search-btn" title="双击ctrl试一下" href="#">Search</a>
                     </li>
                 </ul>
             </div>
