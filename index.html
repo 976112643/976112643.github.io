@@ -8,9 +8,9 @@ description: "Thinking will not overcome fear but action will."
 {% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title-link"><!--post-title-->
+        <h3 class="post-title-link"><!--post-title-->
             {{ post.title }}
-        </h2>
+        </h3>
         {% if post.subtitle %}
         <h3 class="post-subtitle">
             {{ post.subtitle }}
