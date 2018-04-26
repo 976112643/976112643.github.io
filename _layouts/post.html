@@ -210,7 +210,7 @@ gitment.render('gitmentContainer');
 <script>		 
 //$(document).ready(function() {
 			//alert($("body").width());
-$.get("https://manager.quanwe.top/Api/Analysis/Index/accum_analysis?hash_info={{ page.id }}",function(data,status){
+$.get("https://manager.quanwe.top/Api/Analysis/Index/accum_analysis?hash_info={{ page.id }}&title="+window.location.href,function(data,status){
     //alert("数据: " + data['info'] + "\n状态: " + status+"  "+$('span.views'));
 	$('span.views').text(data['info']);
   });

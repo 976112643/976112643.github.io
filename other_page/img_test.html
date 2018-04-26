@@ -1,0 +1,181 @@
+--- 
+layout: testpage 
+description: 测试页面汇总 
+header-img: "img/tag-bg.jpg" 
+---
+
+<!-- Page Header -->
+<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<div class="site-heading" id="tag-heading">
+					<h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif
+                        %}</h1>
+					<span class="subheading">{{ page.description }}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+<style>body {
+	margin: 10px;
+}
+
+.demo-carousel {
+	height: 440px;
+	line-height: 20px;
+	text-align: center;
+}
+
+.site-demo-flow-div {
+	width: 100%;
+	height: 250px;
+	border: none;
+	text-align: center;
+	vertical-align: middle;
+	/*display: table-cell;*/
+	display: block;
+}
+
+.site-demo-flow-img {
+	width: 100%;
+	height: 100%;
+	margin: 0 2px 5px 0;
+	overflow: hidden;
+	
+	 background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    background-size:cover;
+	/**border: none;*/
+}
+
+.site-demo-flow-li {
+	width: 50%;
+	/*如果显示三列 则width改为70px*/
+	float: left;
+	display: block;
+
+}</style>
+<!-- Main Content -->
+<div class="container">
+    <button class="layui-btn layui-btn-primary">原始按钮</button>
+    <button class="layui-btn">默认按钮</button>
+    <button class="layui-btn layui-btn-normal">百搭按钮</button>
+    <button class="layui-btn layui-btn-warm">暖色按钮</button>
+    <button class="layui-btn layui-btn-danger">警告按钮</button>
+    <button class="layui-btn layui-btn-disabled">禁用按钮</button>
+	<div style="margin-top:20px">
+	    <button class="layui-btn layui-btn-primary"><a href="http://www.layui.com" title="http://www.layui.com">layui</a></button>
+    <button class="layui-btn">默认按钮</button>
+    <button class="layui-btn layui-btn-normal">百搭按钮</button>
+    <button class="layui-btn layui-btn-warm">暖色按钮</button>
+    <button class="layui-btn layui-btn-danger">警告按钮</button>
+    <button class="layui-btn layui-btn-disabled">禁用按钮</button>
+	</div>
+
+	<ul class="site-demo-flow" id="LAY_demo1" >
+	</ul>
+	
+	<script>layui.use(['carousel', 'form'], function() {
+	var carousel = layui.carousel,
+		form = layui.form;
+
+	//常规轮播
+	carousel.render({
+		elem: '#test1',
+		arrow: 'always'
+	});
+
+	//改变下时间间隔、动画类型、高度
+	carousel.render({
+		elem: '#test2',
+		interval: 1800,
+		anim: 'fade',
+		height: '120px'
+	});
+
+	//设定各种参数
+	var ins3 = carousel.render({
+		elem: '#test3'
+	});
+	//图片轮播
+	carousel.render({
+		elem: '#test10',
+		width: '778px',
+		height: '440px',
+		interval: 5000
+	});
+
+	//事件
+	carousel.on('change(test4)', function(res) {
+		console.log(res)
+	});
+
+	var $ = layui.$,
+		active = {
+			set: function(othis) {
+				var THIS = 'layui-bg-normal',
+					key = othis.data('key'),
+					options = {};
+
+				othis.css('background-color', '#5FB878').siblings().removeAttr('style');
+				options[key] = othis.data('value');
+				ins3.reload(options);
+			}
+		};
+
+	//监听开关
+	form.on('switch(autoplay)', function() {
+		ins3.reload({
+			autoplay: this.checked
+		});
+	});
+
+	$('.demoSet').on('keyup', function() {
+		var value = this.value,
+			options = {};
+		if(!/^\d+$/.test(value)) return;
+
+		options[this.name] = value;
+		ins3.reload(options);
+	});
+
+	//其它示例
+	$('.demoTest .layui-btn').on('click', function() {
+		var othis = $(this),
+			type = othis.data('type');
+		active[type] ? active[type].call(this, othis) : '';
+	});
+});</script>
+
+	<script>layui.use('flow', function() {
+	var flow = layui.flow;
+
+	flow.load({
+		elem: '#LAY_demo1' //流加载容器
+			//,scrollElem: '#LAY_demo1' //滚动条所在元素，一般不用填，此处只是演示需要。
+			,
+		done: function(page, next) { //执行下一页的回调
+
+			//模拟数据插入
+			setTimeout(function() {
+				var lis = [];
+				for(var i = 0; i < 8; i++) {
+					//
+					//
+					lis.push('<li class="site-demo-flow-li"><div class="site-demo-flow-div"> <img class="site-demo-flow-img" style="background-image: url(https://gw.alicdn.com/bao/uploaded/i2/701696736/TB2PNl5ahQa61Bjy0FhXXaalFXa_!!701696736.jpg_400x400q90.jpg?t=1523429060816);"></div></li>')
+				}
+				//执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
+				//pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多
+				next(lis.join(''), page < 10); //假设总页数为 10
+			}, 500);
+		}
+	});
+
+	//按屏加载图片
+	flow.lazyimg();
+});</script>
+</div>
