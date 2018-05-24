@@ -54,7 +54,10 @@ markdown: kramdown
 
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
-
+  extensions:
+      - autolink
+      - footnotes
+      - smart
 
 
 # 评论系统

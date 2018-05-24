@@ -1,5 +1,5 @@
----
-layout: default
+--- 
+layout: default 
 ---
 
 <!-- Image to hack wechat -->
@@ -8,225 +8,231 @@ layout: default
 
 <!-- Post Header -->
 <style type="text/css">
-    header.intro-header{
-        position: relative;
-        background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% endif %}')
-    }
-    {% if page.header-mask %}
-    header.intro-header .header-mask{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        background: rgba(0,0,0, {{ page.header-mask }});
-    }
-    {% endif %}
+	header.intro-header {
+		position: relative;
+		background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% endif %}')
+	}
+	
+	{
+		% if page.header-mask %
+	}
+	
+	header.intro-header .header-mask {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		background: rgba(0,
+		0,
+		0,
+		{
+			{
+				page.header-mask
+			}
+		}
+		);
+	}
+	
+	{
+		% endif %
+	}
 </style>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css" /> 
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css" />
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js">
-</script> 
+</script>
 
-<header class="intro-header" >
-    <div class="header-mask"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <div class="tags">
-                        {% for tag in page.tags %}
-                        <a class="tag" href="{{ site.baseurl }}/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
-                        {% endfor %}
-                    </div>
-                    <h1>{{ page.title }}</h1>
-                    {% comment %}
-                        always create a h2 for keeping the margin , 
-                    {% endcomment %}
-                    {% comment %} if page.subtitle {% endcomment %}
-                    <h2 class="subheading">{{ page.subtitle }}</h2>
-                    {% comment %} endif {% endcomment %}
-                    <span class="meta">By {% if page.author %}{{ page.author }}{% else %}{{ site.author-name }}{% endif %} on {{ page.date | date: "%Y-%m-%d" }}&nbsp;·&nbsp;<i class="icon fa-eye icon-pr"></i>&nbsp;<span class="views"> 0 </span></span>
-                </div>
-            </div>
-        </div>
-    </div>
+<header class="intro-header">
+
+	<div class="header-mask"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<div class="post-heading">
+					<div class="tags">
+						{% for tag in page.tags %}
+						<a class="tag" href="{{ site.baseurl }}/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
+						{% endfor %}
+					</div>
+					<h1>{{ page.title }}</h1> {% comment %} always create a h2 for keeping the margin , {% endcomment %} {% comment %} if page.subtitle {% endcomment %}
+					<h2 class="subheading">{{ page.subtitle }}</h2> {% comment %} endif {% endcomment %}
+					<span class="meta">By {% if page.author %}{{ page.author }}{% else %}{{ site.author-name }}{% endif %} on {{ page.date | date: "%Y-%m-%d" }}&nbsp;·&nbsp;<i class="icon fa-eye icon-pr"></i>&nbsp;<span class="views"> 0 </span></span>
+				</div>
+			</div>
+		</div>
+	</div>
 </header>
 
 <!-- Post Content -->
 <article>
-    <div class="container">
-        <div class="row">
-
-    <!-- Post Container -->
-            <div class="
+	<div class="container">
+		<div class="row">
+			<div id="toc"></div>
+			<!-- Post Container -->
+			<div class="
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
 
 				{{ content }}
 
-                <hr style="visibility: hidden;">
+				<hr style="visibility: hidden;">
 
+				<ul class="pager">
+					{% if page.previous.url %}
+					<li class="previous">
+						<a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">
+							Previous<br>
+							<span>{{page.previous.title}}</span>
+						</a>
+					</li>
+					{% endif %} {% if page.next.url %}
+					<li class="next">
+						<a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">
+							Next<br>
+							<span>{{page.next.title}}</span>
+						</a>
+					</li>
+					{% endif %}
+				</ul>
 
-                <ul class="pager">
-                    {% if page.previous.url %}
-                    <li class="previous">
-                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">
-                        Previous<br>
-                        <span>{{page.previous.title}}</span>
-                        </a>
-                    </li>
-                    {% endif %}
-                    {% if page.next.url %}
-                    <li class="next">
-                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">
-                        Next<br>
-                        <span>{{page.next.title}}</span>
-                        </a>
-                    </li>
-                    {% endif %}
-                </ul>
+				<!-- gitment评论框 -->
+				<div id="gitmentContainer">
+				</div>
+				<script>
+					const myTheme = {
+						render(state, instance) {
+							const container = document.createElement('div')
+							container.lang = "en-US"
+							container.className = 'gitment-container gitment-root-container'
+							container.appendChild(instance.renderHeader(state, instance))
+							container.appendChild(instance.renderEditor(state, instance))
+							container.appendChild(instance.renderComments(state, instance))
+							container.appendChild(instance.renderFooter(state, instance))
+							return container
+						},
+					}
+					var gitment = new Gitment({
+						owner: '976112643',
+						repo: '976112643.github.io',
+						oauth: {
+							client_id: '15a22e6ea7d5381aa336',
+							client_secret: '5f3caf5c69718be31a46b729d5d21754df1ba8e0',
+						},
+						theme: myTheme,
+					});
+					gitment.render('gitmentContainer');
+				</script>
 
+				<!-- gitment评论框END -->
 
-             
+			</div>
 
-<!-- gitment评论框 -->
-<div id="gitmentContainer"> 
-</div> 
-<script>
-  const myTheme = {
-  render(state, instance) {
-    const container = document.createElement('div')
-    container.lang = "en-US"
-    container.className = 'gitment-container gitment-root-container'
-    container.appendChild(instance.renderHeader(state, instance))
-    container.appendChild(instance.renderEditor(state, instance))
-    container.appendChild(instance.renderComments(state, instance))
-    container.appendChild(instance.renderFooter(state, instance))
-    return container
-  },
-}
-	var gitment = new Gitment({
-    owner: '976112643',
-    repo: '976112643.github.io',
-    oauth: {
-        client_id: '15a22e6ea7d5381aa336',
-        client_secret: '5f3caf5c69718be31a46b729d5d21754df1ba8e0',
-    },
-	theme: myTheme,
-});
-gitment.render('gitmentContainer'); 
-</script> 
-
-			<!-- gitment评论框END -->
-
-            </div>  
-
-    <!-- Side Catalog Container -->
-        {% if page.catalog %}
-            <div class="
+			<!-- Side Catalog Container -->
+			{% if page.catalog %}
+			<div class="
                 col-lg-2 col-lg-offset-0
                 visible-lg-block
                 sidebar-container
                 catalog-container">
-                <div class="side-catalog">
-                    <hr class="hidden-sm hidden-xs">
-                    <h5>
+				<div class="side-catalog">
+					<hr class="hidden-sm hidden-xs">
+					<h5>
                         <a class="catalog-toggle" href="#">CATALOG</a>
                     </h5>
-                    <ul class="catalog-body"></ul>
-                </div>
-            </div>
-        {% endif %}
+					<ul class="catalog-body"></ul>
+				</div>
+			</div>
+			{% endif %}
 
-    <!-- Sidebar Container -->
-            <div class="
+			<!-- Sidebar Container -->
+			<div class="
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 sidebar-container">
 
-                <!-- Featured Tags -->
-                {% if site.featured-tags %}
-                <section>
-                    <hr class="hidden-sm hidden-xs">
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-        				{% for tag in site.tags %}
-                            {% if tag[1].size > site.featured-condition-size %}
-                				<a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
-                                    {{ tag[0] }}
-                                </a>
-                            {% endif %}
-        				{% endfor %}
-        			</div>
-                </section>
-                {% endif %}
+				<!-- Featured Tags -->
+				{% if site.featured-tags %}
+				<section>
+					<hr class="hidden-sm hidden-xs">
+					<h5><a href="/tags/">FEATURED TAGS</a></h5>
+					<div class="tags">
+						{% for tag in site.tags %} {% if tag[1].size > site.featured-condition-size %}
+						<a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
+							{{ tag[0] }}
+						</a>
+						{% endif %} {% endfor %}
+					</div>
+				</section>
+				{% endif %}
 				<!--PC和WAP自适应版-->
 				<div id="SOHUCS" sid="{{page.id}}">
 				</div>
-                <!-- Friends Blog -->
-                {% if site.friends %}
-                <hr>
-                <h5>FRIENDS</h5>
-                <ul class="list-inline">
-                    {% for friend in site.friends %}
-                        <li><a href="{{friend.href}}">{{friend.title}}</a></li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-            </div>
-			
+				<!-- Friends Blog -->
+				{% if site.friends %}
+				<hr>
+				<h5>FRIENDS</h5>
+				<ul class="list-inline">
+					{% for friend in site.friends %}
+					<li>
+						<a href="{{friend.href}}">{{friend.title}}</a>
+					</li>
+					{% endfor %}
+				</ul>
+				{% endif %}
+			</div>
 
-        </div>
-    </div>
+		</div>
+	</div>
 </article>
 
-
 <!-- 原来放置评论的位置 -->
-
 
 {% if site.anchorjs %}
 <!-- async load function -->
 <script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
+	function async(u, c) {
+		var d = document,
+			t = 'script',
+			o = d.createElement(t),
+			s = d.getElementsByTagName(t)[0];
+		o.src = u;
+		if(c) {
+			o.addEventListener('load', function(e) {
+				c(null, e);
+			}, false);
+		}
+		s.parentNode.insertBefore(o, s);
+	}
 </script>
 <!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
 <script>
-    async("/js/anchor.min.js",function(){
-        anchors.options = {
-          visible: 'always',
-          placement: 'right',
-          icon: '#'
-        };
-        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-    })
+	async("/js/anchor.min.js", function() {
+		anchors.options = {
+			visible: 'always',
+			placement: 'right',
+			icon: '#'
+		};
+		anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+	})
 </script>
 
-<script>		 
-//$(document).ready(function() {
-			//alert($("body").width());
-$.get("https://manager.quanwe.top/Api/Analysis/Index/accum_analysis?hash_info={{ page.id }}&title="+window.location.href,function(data,status){
-    //alert("数据: " + data['info'] + "\n状态: " + status+"  "+$('span.views'));
-	$('span.views').text(data['info']);
-  });
-//		});
+<script>
+	$.get("https://manager.quanwe.top/Api/Analysis/Index/accum_analysis?hash_info={{ page.id }}&title=" + window.location.href, function(data, status) {
+		//alert("数据: " + data['info'] + "\n状态: " + status+"  "+$('span.views'));
+		$('span.views').text(data['info']);
+	});
+	//		});
+</script>
 
-
-</script> 
 <style>
-    /* place left on bigger screen */
-    @media all and (min-width: 800px) {
-        .anchorjs-link{
-            position: absolute;
-            left: -0.75em;
-            font-size: 1.1em;
-            margin-top : -0.1em;
-        }
-    }
+	/* place left on bigger screen */
+	
+	@media all and (min-width: 800px) {
+		.anchorjs-link {
+			position: absolute;
+			left: -0.75em;
+			font-size: 1.1em;
+			margin-top: -0.1em;
+		}
+	}
 </style>
 {% endif %}

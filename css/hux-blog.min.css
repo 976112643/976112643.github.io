@@ -1522,3 +1522,17 @@ body {
   color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.26);
 }
+
+.clickable-header {
+  cursor:pointer;
+}
+.clickable-header:hover {
+  text-decoration:underline;
+}
+.top-level-header {
+  display:inline;
+}
+.back-to-top {
+  margin-left:5px;
+  cursor:pointer;
+}
