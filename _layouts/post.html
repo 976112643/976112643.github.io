@@ -38,14 +38,24 @@ layout: default
 	ul#markdown-toc {
     	right: -200px;
    		 top: 50px;
+   		 display: none;
     	position: absolute;
+}
+.toc-item{
+	color: #727272;
+}
+.toc-list{
+	color: #727272;
+}
+.toc-link{
+	color: #727272;
 }
 </style>
 <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css" />
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js">
 </script>
 
-<header class="intro-header">
+<header class="intro-header" id="header">
 
 	<div class="header-mask"></div>
 	<div class="container">
@@ -68,9 +78,13 @@ layout: default
 
 <!-- Post Content -->
 <article>
-	<div class="container">
+	<div class="container" id="post-content">
 		<div class="row">
-			<div id="toc"></div>
+			<aside class="post-widget">
+    </aside>
+    	
+    <div id="a-markdown-toc">
+    </div>
 			<!-- Post Container -->
 			<div class="
                 col-lg-8 col-lg-offset-2

@@ -135,13 +135,20 @@
 <script src="{{ "/search/js/bootstrap3-typeahead.min.js" | prepend: site.baseurl }}"></script>
 <script src="{{ "/search/js/cb-search.js" | prepend: site.baseurl }}"></script>
 </script> 
-<script type="text/javascript" src="/js/jquery.ztree.core-3.5.js"></script>
-<script type="text/javascript" src="/js/jquery.ztree_toc.min.js"></script>
+
+<script type="text/javascript" src="/js/toc_main.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+    $('#a-markdown-toc').toc();
+    console.log($('.post-container.clickable-header  a'))
+     console.log($('#post-title-anchor-link').attr('href'))
+    
+    console.log($('.post-container.clickable-header  a').attr('class'))
 //	$('#toc').ztree_toc({
 //		is_auto_number: true
 //	});
+
+//$.toc();
 });
 </script>
 
