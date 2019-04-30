@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!-- saved from url=(0113)http://m.xiaoxineye.com/wxaward/html5/games/eye/index.html?from=timeline&isappinstalled=0$share=1$share=1$share=1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>16关以下不要再玩手机了！</title>
+
+<meta name="viewport" content="width=device-width,user-scalable=no">
+<link rel="stylesheet" href="./color-mini-game_files/m.css"> 
+<style>
+html,body{height: 100%; width: 100%; margin: 0;padding: 0; background-color: #383838;}
+#mask {
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: fixed;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+#mask img {
+    top: 0px;
+    right: 20px;
+    position: absolute;
+}
+#index h2 { font-size: 22px; line-height:50px;}
+a{ text-decoration:none;}
+
+/*分享组件*/
+#sharebar{ z-index:9999 ;}
+#sharebar .bg{display: none; position: fixed;z-index:9999 ; left: 0; bottom: 0; width:100% ; height: 100%; background: rgba(0,0,0,0.5);}
+#sharebar .box{ position: fixed;z-index:9999 ; left: 0; bottom: -180px; padding: 20px 0 0 0; width:100% ; background-color:#fff ; text-align:center; -webkit-transition: bottom 0.5s; transition: bottom 0.5s;}
+#sharebar .box ul{ display: table; width:100% ; padding: 0; margin: 0;}
+#sharebar .box ul li{ display: table-cell; height:40px ; line-height: 40px; color: #464646;}
+#sharebar .box ul li img{ width:40px ;}
+#sharebar .box .closebtn{ display:inline-block ; font-size: 16px; width:100% ; border-top: 5px solid #f5f5f5; line-height: 50px; margin-top: 10px;  color: #464646;    margin: 0; }
+
+#sharebar.on .box{bottom: 0;} 
+#sharebar.on .bg{ display: block;}
+</style>
+<script src="./color-mini-game_files/hm.js"></script><script type="text/javascript" async="" src="./color-mini-game_files/color.min.js"></script><script>
+if(location.origin=='http://www.guozibank.com'){
+    location.href = 'http://m.eyenurse.net/wxaward/html5/games/eye/index.html?share=1';
+}
+</script>
+</head>
+<body>
+<div id="mask" onclick="javascript:$(&#39;#mask&#39;).css(&#39;display&#39;, &#39;none&#39;);"><img src="./color-mini-game_files/0067SN5Qgw1exhaxeoqsdj306s06smx2.jpg"></div>
+<div class="grid">
+    <div class="page hide" id="index" style="display: block;">
+        <h1>测测你的视力有多强</h1>
+        <h2>eYenurse 检测中心</h2>
+        <h3>The Color !</h3>
+        <div id="help">找出所有色块里颜色不同的一个
+            <br><span>世界上只有3个人能玩到48关</span>
+        </div>
+        <div class="btns">
+            <button data-type="color" class="btn play-btn"> 开始测试</button>
+            <div align="center"></div>
+        </div>
+    </div>
+    <div class="page hide" id="room">
+        <header>
+            <span class="lv">得分：<em>0</em></span>
+            <span class="time">60</span>
+            <span class="btn btn-pause" style="font-size:16px;">暂停</span>
+        </header>
+        <div id="box" class="lv1"></div>        
+    </div>
+    <div class="page hide" id="dialog">
+        <div class="inner">
+            <div class="content gameover">
+                <h2 style="font-size:36px; font-weight:normal; margin:5px; color:#44d9c5 ;">0分</h2>
+                <p>你的视力达到以下动物的水平：</p>
+                <h3 style="color:#44d9c5 ;"></h3>
+                <div class="btn-wrap">
+                    <a class="btn btn-boyaa" href="javascript:;" style="background-color: #44d9c5;">分享给好友</a>
+                    <button class="btn btn-restart" style="background-color: #3cb6de;">再玩一次</button>
+                </div>
+                <br>
+            </div>
+            <div class="content pause">
+                <h3> 游戏暂停</h3>
+                <div class="btn-wrap">
+                    <button class="btn btn-resume">继续</button>
+                    <div id="ad_control" style="display:none;"></div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>	
+
+<!--分享组件-->
+<div id="sharebar">
+    <div class="bg"></div>
+    <div class="box">
+        <ul>
+            <li id="sbbtn02">
+                <img src="./color-mini-game_files/ic_dialog_share_weixin.png"><br>微信好友
+            </li>
+            <li id="sbbtn01">
+                <img src="./color-mini-game_files/ic_dialog_share_weixincircle.png"><br>微信朋友圈
+            </li>
+        </ul>
+        <div class="closebtn">取消</div>
+    </div>      
+</div>
+<!--//分享组件-->
+<input type="hidden" id="appendflag" value="1">
+<script type="text/javascript" src="./color-mini-game_files/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="./color-mini-game_files/downlaod.js"></script>
+<script src="./color-mini-game_files/wxshare.js"></script>
+<script type="text/javascript">
+(function () {
+    var libs = document.createElement('script');
+    libs.type = 'text/javascript';
+    libs.async = true;
+    libs.src = 'color.min.js?v=4';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(libs, s);
+})();
+
+function setTitle(title) {
+   document.title = title;
+   shareInfo.title = title;
+   wx_share(shareInfo);
+}
+var isApp = false;
+
+//分享配置
+wxShareInit({
+    title : '16分以下不要再玩手机了！',
+    desc : '你想知道自己的色彩分辨能力有多強吗？快来测测吧！',
+    imgUrl : window.location.origin+'/wxaward/html5/games/eye/share_icon.jpg',
+    link : window.location.href+'$share=1'
+});
+
+//环境判断
+var uat = navigator.userAgent;
+var isWX = (uat.toLowerCase().match(/MicroMessenger/i)=='micromessenger');
+var isiOS = !!uat.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+var isIosWebkit = !!window.webkit && !isWX;
+var isWebkit = !!window.webkit;
+var isAndroid = !!window.jsCallNative;
+var isApp = isAndroid || isIosWebkit;
+
+var openShareBar = null;
+
+
+//isApp = 1;
+if(isApp){
+   // shareinit();
+    //游戏积分
+    $.get('http://m.eyenurse.net/wxaward/eye/index.php?r=eye/addgameslevel');
+}
+
+$('.btn-boyaa').click(function(event) {
+    if(isApp){
+        openShareBar();
+    }else{
+        $('#mask').css('display', 'block ');
+    }
+});
+
+
+if(isWX){
+    setTimeout(function(){
+        $('#btn_dl').text('体验黑科技').click(function(event) {
+            location.href = 'http://m.eyenurse.net/wxaward/eye/index.php?r=shop/goodsdetail&id=1'; 
+        });
+    }, 50);
+}
+
+
+//百度统计
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8ae51051d96bfbe81b4124df9077df5d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+</body></html>
