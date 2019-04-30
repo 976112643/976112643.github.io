@@ -147,7 +147,7 @@ body>a{ display: none; }
 }
 
 #dialog{
-    background: /*url(../img/share.png)*/ top right no-repeat #55494949;
+    background: /*url(../img/share.png)*/ top right no-repeat #494949;
     padding-top: 5px;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
