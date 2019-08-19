@@ -101,7 +101,7 @@ header-imgs: [
 ]
 
 # 首页默认图片
-index-header-img: "img/post-bg-github-cup.jpg"
+index-header-img: "img/5155946.png"
 
 # 是否显示春菜
 weichuncai-show: false     
